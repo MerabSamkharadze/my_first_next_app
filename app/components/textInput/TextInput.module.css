@@ -1,0 +1,16 @@
+.Text {
+  font-size: 25px;
+  text-align: center;
+  color: blueviolet;
+  padding: 5px 10px;
+}
+
+.Input {
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid green;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 30%;
+}
