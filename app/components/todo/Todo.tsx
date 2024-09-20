@@ -9,12 +9,20 @@ export default () => {
     setTask(e.target.value);
   };
   const add = () => {
+    if (task === "") {
+      return;
+    }
     setTasks([...tasks, { id: iditor(tasks), tsk: task }]);
+
+    console.log(tasks);
     setTask("");
   };
   function iditor(arr: any) {
     let sorted = [...tasks].sort((a, b) => a.id - b.id);
     return sorted[sorted.length - 1].id + 1;
+  }
+  function remover(e: any) {
+    console.log();
   }
   return (
     <div>
@@ -27,7 +35,9 @@ export default () => {
       <button onClick={add}>Add</button>
       <ul>
         {tasks.map((task) => (
-          <li key={task.id}>{task.tsk}</li>
+          <li onClick={remover} key={task.id}>
+            {task.tsk}
+          </li>
         ))}
       </ul>
     </div>
