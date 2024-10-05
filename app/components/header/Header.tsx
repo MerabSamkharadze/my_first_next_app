@@ -1,13 +1,14 @@
 import Link from "next/link";
 import Style from "./Header.module.css";
 
-export default () => {
+export default function Header() {
   return (
     <>
       <div className={Style.Header}>
-        <Link href={"/mebo"}>mebo's page</Link>
-        <Link href={"/leo"}>leo's page</Link>
+        <Link href={"/mebo"}>mebo page</Link>
+        <Link href={"/leo"}>leo page</Link>
+        <Link href={"/products"}>products</Link>
       </div>
     </>
   );
-};
+}
