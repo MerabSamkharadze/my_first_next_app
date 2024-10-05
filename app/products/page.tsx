@@ -3,10 +3,15 @@
 import axios from "axios";
 import { useState } from "react";
 
-export default function Page() {
-  const [posts, setPosts] = useState([]);
+interface Post {
+  id: number;
+  title: string;
+}
 
-  const getProducts = () => {
+export default function Page() {
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  const getPosts = () => {
     axios.get("https://dummyjson.com/posts").then((result) => {
       setPosts(result.data.posts);
     });
@@ -15,7 +20,12 @@ export default function Page() {
 
   return (
     <div>
-      <button onClick={getProducts}>get data</button>
+      <button onClick={getPosts}>get data</button>
+      <ul>
+        {posts.map((item: Post) => {
+          return <li key={item.id}>{item.title}</li>;
+        })}
+      </ul>
     </div>
   );
 }
