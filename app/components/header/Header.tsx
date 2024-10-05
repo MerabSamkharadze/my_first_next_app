@@ -7,7 +7,7 @@ export default function Header() {
       <div className={Style.Header}>
         <Link href={"/mebo"}>mebo page</Link>
         <Link href={"/leo"}>leo page</Link>
-        <Link href={"/products"}>products</Link>
+        <Link href={"/posts"}>posts</Link>
       </div>
     </>
   );
