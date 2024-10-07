@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import axios from "axios";
 
 export default function Products() {
@@ -14,7 +15,11 @@ export default function Products() {
   return (
     <ul>
       {products.map((product) => {
-        return <li key={product.id}>{product.title}</li>;
+        return (
+          <li key={product.id}>
+            <Link href={`/products/${product.id}`}>{product.title}</Link>
+          </li>
+        );
       })}
     </ul>
   );
