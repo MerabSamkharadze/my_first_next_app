@@ -6,7 +6,6 @@ import Link from "next/link";
 
 export default function Page() {
   const [posts, setPosts] = useState([]);
-
   const getPosts = () => {
     axios.get("https://dummyjson.com/posts").then((result) => {
       setPosts(result.data.posts);

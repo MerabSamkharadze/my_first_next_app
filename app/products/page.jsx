@@ -1,17 +1,13 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 
-export default function Products() {
-  const [products, setProducts] = useState([]);
-  function getProducts() {
-    axios.get("https://dummyjson.com/products").then((responce) => {
-      setProducts(responce.data.products);
-    });
-  }
-  useEffect(getProducts, []);
+export async function getProducts() {
+  const res = await axios.get(`https://dummyjson.com/products`);
+  return res.data.products;
+}
+
+export default async function Products() {
+  const products = await getProducts();
   return (
     <ul>
       {products.map((product) => {
